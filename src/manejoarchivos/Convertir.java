@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package manejoarchivos;
 
 /**
@@ -14,17 +11,25 @@ public class Convertir {
     private double valorMonetario;
     private double saldo;
     private String monedaAnterior;
-
+/**
+ * Este constructor inicializa el objeto Convertir con los valores de la moneda actual, el saldo a convertir y la moneda anterior. 
+ */
     public Convertir(String moneda, double saldo, String monedaAnterior) {
         this.moneda = moneda;
         this.saldo = saldo;
         this.monedaAnterior = monedaAnterior;
     }
-    
+/**
+ * Devuelve la moneda actual
+*/    
     public String getMonedaActual(){
         return moneda;
     }
-
+/**
+ * Verifican si la moneda ingresada es válida. 
+ * Revisa si la moneda se encuentra entre las monedas aceptadas (Dólar, Euro, Sol, Real, Yen, Boliviano).
+ * Si lo está, retornan true, en caso contrario, false. 
+ */
     private boolean habilitarMoneda() {
         switch (moneda) {
             case "Dolar" -> {
@@ -50,7 +55,11 @@ public class Convertir {
             }
         }
     }
-
+/**
+ * Verifican si la moneda ingresada es válida. 
+ * Revisa si la moneda se encuentra entre las monedas aceptadas (Dólar, Euro, Sol, Real, Yen, Boliviano).
+ * Si lo está, retornan true, en caso contrario, false. 
+ */
     private boolean habilitarMonedaA() {
         switch (monedaAnterior) {
             case "Dolar" -> {
@@ -76,7 +85,11 @@ public class Convertir {
             }
         }
     }
-
+/**
+ * Este método establece el valor de conversión entre la monedaAnterior y la moneda actual.
+ * Dependiendo de la combinación de monedas, asigna una tasa de conversión.
+ * El método devuelve true si encuentra una tasa de conversión válida, y false si no.
+ */
     private boolean monedaValor() {
         if (monedaExiste()) {
             if (moneda.equals("Dolar")) {
@@ -214,7 +227,10 @@ public class Convertir {
         }
         return false;
     }
-
+/**
+ * Este método realiza la conversión del saldo usando la tasa de cambio obtenida en monedaValor().
+ * Divide el saldo entre valorMonetario para convertir la cantidad a la nueva moneda y devuelve el saldo convertido.
+ */
     public double convertirMoneda() {
         if (monedaValor()) {
             saldo = saldo / valorMonetario;
@@ -222,14 +238,19 @@ public class Convertir {
         }
         return saldo;
     }
-
+/**
+ * Devuelve el nombre de la nueva moneda a la que se ha convertido el saldo, o la moneda anterior si la conversión no fue válida. 
+ */
     public String getNuevaMoneda() {
         if(monedaValor()){
             return moneda;
         }
         return monedaAnterior;
     }
-
+/*
+* Este método comprueba si tanto la moneda como la monedaAnterior son válidas.
+* Solo si ambas monedas son válidas, retorna true.
+*/
     public boolean monedaExiste() {
         return habilitarMoneda() && habilitarMonedaA();
     }

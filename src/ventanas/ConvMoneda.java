@@ -140,7 +140,9 @@ public class ConvMoneda extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Esta accion tiene el objetivo de volver a la "Pagina Principal" de la interfaz 
+ */
     private void jButton_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VolverActionPerformed
         new PagPrincipal().setVisible(true);
         this.setVisible(false);

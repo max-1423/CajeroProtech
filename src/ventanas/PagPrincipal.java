@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ventanas;
 
 import java.awt.Image;
@@ -14,11 +11,8 @@ import manejoarchivos.Cliente;
 import static ventanas.Login.clienteActual;
 import java.text.DecimalFormat;
 
-
-
 /**
- *
- * @author JHAK
+ * Esta "PagPrincipal" nos presenta las opciones "Ver Saldo, Depositar, Retirar y Convertir"para interactuar con la cuenta del usuario
  */
 public class PagPrincipal extends javax.swing.JFrame {
 
@@ -187,23 +181,31 @@ public class PagPrincipal extends javax.swing.JFrame {
     private void jButton_TerminarProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TerminarProgramaActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton_TerminarProgramaActionPerformed
-
+/**
+ * Este boton nos permite convertir el saldo y el tipo de divisa a otra con el cambio de saldo respectivo. 
+ */
     private void jButton_ConvertirMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConvertirMonedaActionPerformed
         new ConvMoneda().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton_ConvertirMonedaActionPerformed
-
+/**
+ * Este boton nos permite consultar cual es el "saldo" actual de nuestra cuenta mediante un mensaje de dialogo.
+ */
     private void jButton_VerSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VerSaldoActionPerformed
         DecimalFormat df = new DecimalFormat("#.##");
         String valorFormateado = df.format(clienteActual.getSaldo());
         JOptionPane.showMessageDialog(null, "Saldo Actual: " + valorFormateado + " " + clienteActual.getMoneda());
     }//GEN-LAST:event_jButton_VerSaldoActionPerformed
-
+/**
+ * Este boton nos permite realizar un deposito a la cuenta del usuario. 
+ */
     private void jButton_DepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DepositarActionPerformed
         new Depositar().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton_DepositarActionPerformed
-
+/**
+ * Esre boton nos permite realizar un retiro a la cuenta del usuario 
+ */
     private void jButton_RetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RetirarActionPerformed
         new Retirar().setVisible(true);
         this.setVisible(false);

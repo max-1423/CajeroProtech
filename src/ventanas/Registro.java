@@ -160,7 +160,9 @@ public class Registro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Este codigo nos permite la accion de agregar un nuevo "Usuario" a nuestra lista de "Usuarios" almacenando los cambios en nuestro archivo txt. 
+ */
     private void jButton_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarActionPerformed
         String nombre = jTextField_Nombre.getText();
         String contraseña = jTextField_Contrasenia.getText();
@@ -172,7 +174,9 @@ public class Registro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El nombre ya está en uso. Intente otro.");
         }
     }//GEN-LAST:event_jButton_RegistrarActionPerformed
-
+/**
+ * Con este boton podemos volver a la pagina de "Acceso" o "Login".
+ */
     private void jButton_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VolverActionPerformed
         new Login().setVisible(true);
         this.setVisible(false);

@@ -140,12 +140,17 @@ public class Retirar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Esta accion tiene el objetivo de volver a la "Pagina Principal" de la interfaz 
+ */
     private void jButton_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VolverActionPerformed
         new PagPrincipal().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton_VolverActionPerformed
-
+/**
+*El jButton_AccionRetirarActionPerformed realiza la accion de retirar un monto de la cuenta del cliente,
+*los cambios realizados se guardan en el archivo txt creado previamente.
+*/
     private void jButton_AccionRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AccionRetirarActionPerformed
         double cantidad = Double.parseDouble(jTextField_MontoRetirar.getText());
         DecimalFormat df = new DecimalFormat("#.##");
