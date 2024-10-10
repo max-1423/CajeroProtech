@@ -10,12 +10,15 @@ import manejoarchivos.Banco;
 import manejoarchivos.Cliente;
 import static ventanas.Login.banco;
 import static ventanas.Login.clienteActual;
+/**
+ *Esta clase crea una ventana de Depositar para el Cajero  Automatico
+ */
 
 public class Depositar extends javax.swing.JFrame {
 
    
     /**
-     * Creates new form Depositar
+     * Es el constructor que inicializa la interfaz de Deposito. 
      */
     public Depositar() {
         initComponents();
@@ -41,7 +44,11 @@ public class Depositar extends javax.swing.JFrame {
         jLabel_ImaDepositar.setIcon(icono_depositar);
         this.repaint();
     }
-    
+    /**
+     * Este metodo sebreescribe getIconImage para esteblecer el icono de la aplicacion.
+     * Este cambio se debe a un error en la carpeta de recursos. 
+     * @return el icono de imagen predeterminado como icono de ventana
+     */
     @Override
     public Image getIconImage() {  //CAMBIAR DIRECCION DEL ICONO POR ERROR DE CARPETA DE RECURSOS
     Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo_protech.png"));
@@ -118,17 +125,17 @@ public class Depositar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
- * Esta accion tiene el objetivo de volver a la "Pagina Principal" de la interfaz 
- */
+    /**
+     * Esta accion tiene el objetivo de volver a la "Pagina Principal" de la interfaz 
+     */
     private void jButton_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VolverActionPerformed
         new PagPrincipal().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton_VolverActionPerformed
-/**
-*El jButton_AccionDepositarActionPerformed realiza la accion de depositar un monto en la cuenta del cliente,
-*los cambios realizados se guardan en el archivo txt creado previamente.
-*/
+    /**
+    * El jButton_AccionDepositarActionPerformed realiza la accion de depositar un monto en la cuenta del cliente,
+    * los cambios realizados se guardan en el archivo txt creado previamente.
+    */
     private void jButton_AccionDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AccionDepositarActionPerformed
         double cantidad = Double.parseDouble(jTextField_MontoDepositar.getText());
         DecimalFormat df = new DecimalFormat("#.##");
@@ -139,6 +146,9 @@ public class Depositar extends javax.swing.JFrame {
         banco.guardarClientes(); // Guardar cambios en el archivo
     }//GEN-LAST:event_jButton_AccionDepositarActionPerformed
 
+    /**
+     * Metodo principal que ejecuta la inicializacion de la interfaz de Depositar.
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -8,12 +8,19 @@ import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import manejoarchivos.Banco;
 import manejoarchivos.Cliente;
-
+/**
+ * Esta clase representa la vantana del inicio del cajero automatico 
+ * Esta interfaz nos ermite ingrasar el nombre del ususario y su contraseña.
+ * La clase al ingresar un usuario correcto podemos acceder a la pagina principal.
+ * esta clase tambien nos da acceso al registro que nos permite agregar un nuevo usuario.
+ */
 public class Login extends javax.swing.JFrame {
     
-    public static Banco banco;
-    public static Cliente clienteActual;
-    
+    public static Banco banco;// Esta instancia contiene la informacion de los clientes y gestina operaciones que estan selacionas a susrespectivas clases.
+    public static Cliente clienteActual;// Esta instancia representa al "Cliente" actual que esta iniciando su secion en el cajero automatico.
+    /**
+     * Esta clase crea una ventana de inicio de sesion, ademas carga las imagenes correspondientes y las propiedades predeterminadas de esta interfaz. 
+     */
     public Login() {
         initComponents();
         banco = new Banco();
@@ -31,9 +38,13 @@ public class Login extends javax.swing.JFrame {
         Icon icono_logo = new ImageIcon(wallpaper_logo.getImage().getScaledInstance(jLabel_Logo.getWidth(), jLabel_Logo.getHeight(), Image.SCALE_DEFAULT));
         jLabel_Logo.setIcon(icono_logo);
         this.repaint();      
-    }
-    
+    } 
     @Override
+    /**
+     * Este metodo sebreescribe getIconImage para esteblecer el icono de la aplicacion.
+     * Este cambio se debe a un error en la carpeta de recursos. 
+     * @return el icono de imagen predeterminado como icono de ventana
+     */
     public Image getIconImage() {  //CAMBIAR DIRECCION DEL ICONO POR ERROR DE CARPETA DE RECURSOS
     Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo_protech.png"));
     return retValue;
@@ -134,7 +145,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_AccederActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Metodo principal que ejecuta la inicializacion de la interfaz de Login.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

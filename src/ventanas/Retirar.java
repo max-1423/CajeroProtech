@@ -16,19 +16,15 @@ import static ventanas.Login.banco;
 import static ventanas.Login.clienteActual;
 
 /**
- *
- * @author JHAK
+ *Esta clase crea una ventana de Retiro para el Cajero  Automatico
  */
 
 
 
 public class Retirar extends javax.swing.JFrame {
-
     /**
-     * Creates new form Retirar
+     * Es el constructor que inicializa la interfaz de Registro. 
      */
-    
-    
     public Retirar() {
         initComponents();
         
@@ -53,7 +49,11 @@ public class Retirar extends javax.swing.JFrame {
         jLabel_ImaRetirar.setIcon(icono_retirar);
         this.repaint();
     }
-
+    /**
+     * Este metodo sebreescribe getIconImage para esteblecer el icono de la aplicacion.
+     * Este cambio se debe a un error en la carpeta de recursos. 
+     * @return el icono de imagen predeterminado como icono de ventana
+     */
     @Override
     public Image getIconImage() {  //CAMBIAR DIRECCION DEL ICONO POR ERROR DE CARPETA DE RECURSOS
     Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo_protech.png"));
@@ -163,9 +163,8 @@ public class Retirar extends javax.swing.JFrame {
         }
         jLabel_SaldoActual.setText("");
     }//GEN-LAST:event_jButton_AccionRetirarActionPerformed
-
-    /**
-     * @param args the command line arguments
+     /**
+     * Metodo principal que ejecuta la inicializacion de la interfaz de Retirar.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

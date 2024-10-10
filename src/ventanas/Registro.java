@@ -14,13 +14,12 @@ import manejoarchivos.Cliente;
 import static ventanas.Login.banco;
 
 /**
- *
- * @author JHAK
+ *Esta interfaz crea una ventana de registro en la cual un nuevo usuario puede ningresar sus datos personales y crear una nueva cuenta
  */
 public class Registro extends javax.swing.JFrame {
 
     /**
-     * Creates new form Registro
+     * Es el constructor que inicializa la interfaz de Registro. 
      */
     public Registro() {
         initComponents();
@@ -41,7 +40,11 @@ public class Registro extends javax.swing.JFrame {
         this.repaint();
     }
     
-    
+    /**
+     * Este metodo sebreescribe getIconImage para esteblecer el icono de la aplicacion.
+     * Este cambio se debe a un error en la carpeta de recursos. 
+     * @return el icono de imagen predeterminado como icono de ventana
+     */
     @Override
     public Image getIconImage() {  //CAMBIAR DIRECCION DEL ICONO POR ERROR DE CARPETA DE RECURSOS
     Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo_protech.png"));
@@ -183,7 +186,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_VolverActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Metodo principal que ejecuta la inicializacion de la interfaz de registro.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -1,4 +1,4 @@
 Elena,Lena,L123,0.0,Boliviano
 Yummi,Yumisar,Y123,1991.238550378335,Boliviano
 Joseph,joe123,123,157675.50667529256,Boliviano
-max,mx,123,800120.0,Euro
+max,mx,123,803201.0,Euro

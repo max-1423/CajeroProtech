@@ -2,7 +2,10 @@ package manejoarchivos;
 
 import java.io.*;
 import java.util.*;
-
+/**
+ * Esta clase esta encargada de representar la estructura de un Banco y gestionar una rista de clientes
+ * y gestionar los datos de estos usuarios
+ */
 public class Banco {
     private List<Cliente> clientes;
     private final String clientesFile = "clientes.txt";
@@ -55,6 +58,7 @@ public class Banco {
     
 /**
  * Este método verifica si ya existe un cliente con el mismo nombre en la lista de clientes.
+ * En el caso de que el cliente exista retornara true, en caso contrario regresara false.
  */
     private boolean existeCliente(String nombre) {
         for (Cliente cliente : clientes) {

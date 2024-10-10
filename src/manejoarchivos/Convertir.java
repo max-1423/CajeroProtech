@@ -2,8 +2,7 @@
 package manejoarchivos;
 
 /**
- *
- * @author HP
+ *Esta clase es la encargada de realizar una conversion de divisa o moneda a otra tipo de moneda con valores predeterminados. 
  */
 public class Convertir {
 

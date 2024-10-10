@@ -17,7 +17,7 @@ import java.text.DecimalFormat;
 public class PagPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form PagPrincipal
+     * Esta clase crea la interfaz PagPrincipal mediante la cual podemos acceder a distintos tipos opciones para realizar transacciones en nuestra cuenta. 
      */
     
     public PagPrincipal() {
@@ -63,9 +63,12 @@ public class PagPrincipal extends javax.swing.JFrame {
         this.repaint();
         
     }
-
-    
     @Override
+    /**
+     * Este metodo sebreescribe getIconImage para esteblecer el icono de la aplicacion.
+     * Este cambio se debe a un error en la carpeta de recursos. 
+     * @return el icono de imagen predeterminado como icono de ventana
+     */
     public Image getIconImage() {  //CAMBIAR DIRECCION DEL ICONO POR ERROR DE CARPETA DE RECURSOS
     Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo_protech.png"));
     return retValue;
@@ -212,7 +215,7 @@ public class PagPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_RetirarActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Metodo principal que ejecuta la inicializacion de la interfaz de PagPrincipal.
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

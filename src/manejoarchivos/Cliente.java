@@ -1,7 +1,9 @@
 
 package manejoarchivos;
 
-
+/**
+ * Es ta clase esta encargada de representar un cliente de nuestro banco.
+ */
 public class Cliente {
 
     private String nombre;
@@ -51,7 +53,8 @@ public class Cliente {
         return moneda;
     }
 /**
- * Este método permite depositar una cantidad positiva en la cuenta del cliente. Si la cantidad es mayor que 0, se suma al saldo actual.
+ * Este método permite depositar una cantidad positiva en la cuenta del cliente.
+ * Si la cantidad es mayor que 0, se suma al saldo actual.
  */
     public void depositar(double cantidad) {
         if (cantidad > 0) {
