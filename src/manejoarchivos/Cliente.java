@@ -94,4 +94,10 @@ public class Cliente {
 
         return false;
     }
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
+    }
 }

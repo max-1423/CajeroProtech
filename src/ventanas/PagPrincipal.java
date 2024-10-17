@@ -63,12 +63,13 @@ public class PagPrincipal extends javax.swing.JFrame {
         this.repaint();
         
     }
-    @Override
+    
     /**
      * Este metodo sebreescribe getIconImage para esteblecer el icono de la aplicacion.
      * Este cambio se debe a un error en la carpeta de recursos. 
      * @return el icono de imagen predeterminado como icono de ventana
      */
+    @Override
     public Image getIconImage() {  //CAMBIAR DIRECCION DEL ICONO POR ERROR DE CARPETA DE RECURSOS
     Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo_protech.png"));
     return retValue;
@@ -189,7 +190,7 @@ public class PagPrincipal extends javax.swing.JFrame {
  */
     private void jButton_ConvertirMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ConvertirMonedaActionPerformed
         new ConvMoneda().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton_ConvertirMonedaActionPerformed
 /**
  * Este boton nos permite consultar cual es el "saldo" actual de nuestra cuenta mediante un mensaje de dialogo.
@@ -204,14 +205,14 @@ public class PagPrincipal extends javax.swing.JFrame {
  */
     private void jButton_DepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DepositarActionPerformed
         new Depositar().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton_DepositarActionPerformed
 /**
  * Esre boton nos permite realizar un retiro a la cuenta del usuario 
  */
     private void jButton_RetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RetirarActionPerformed
         new Retirar().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton_RetirarActionPerformed
 
     /**

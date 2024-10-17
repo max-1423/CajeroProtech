@@ -15,9 +15,14 @@ import manejoarchivos.Cliente;
  * esta clase tambien nos da acceso al registro que nos permite agregar un nuevo usuario.
  */
 public class Login extends javax.swing.JFrame {
-    
-    public static Banco banco;// Esta instancia contiene la informacion de los clientes y gestina operaciones que estan selacionas a susrespectivas clases.
-    public static Cliente clienteActual;// Esta instancia representa al "Cliente" actual que esta iniciando su secion en el cajero automatico.
+    /**
+     * Esta instancia contiene la informacion de los clientes y gestina operaciones que estan selacionas a susrespectivas clases.
+    */
+    public static Banco banco;
+    /**
+     * Esta instancia representa al "Cliente" actual que esta iniciando su secion en el cajero automatico.
+     */
+    public static Cliente clienteActual;
     /**
      * Esta clase crea una ventana de inicio de sesion, ademas carga las imagenes correspondientes y las propiedades predeterminadas de esta interfaz. 
      */
@@ -39,12 +44,13 @@ public class Login extends javax.swing.JFrame {
         jLabel_Logo.setIcon(icono_logo);
         this.repaint();      
     } 
-    @Override
+    
     /**
      * Este metodo sebreescribe getIconImage para esteblecer el icono de la aplicacion.
      * Este cambio se debe a un error en la carpeta de recursos. 
      * @return el icono de imagen predeterminado como icono de ventana
      */
+    @Override
     public Image getIconImage() {  //CAMBIAR DIRECCION DEL ICONO POR ERROR DE CARPETA DE RECURSOS
     Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/logo_protech.png"));
     return retValue;
@@ -127,7 +133,7 @@ public class Login extends javax.swing.JFrame {
  */
     private void jButton_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistrarActionPerformed
         new Registro().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton_RegistrarActionPerformed
 /**
  * El voton "Acceder" nos dirige a la "Pantalla Principal" de la interfaz del "Cajero automatico".
@@ -138,7 +144,7 @@ public class Login extends javax.swing.JFrame {
         clienteActual = banco.autenticar(nombre, contraseña);
         if (clienteActual != null) {
             new PagPrincipal().setVisible(true);
-            this.setVisible(false);
+            this.dispose();
         } else {
         JOptionPane.showMessageDialog(null, "Credenciales inválidas.");
         }

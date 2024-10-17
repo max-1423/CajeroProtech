@@ -145,23 +145,26 @@ public class Retirar extends javax.swing.JFrame {
  */
     private void jButton_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VolverActionPerformed
         new PagPrincipal().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton_VolverActionPerformed
 /**
 *El jButton_AccionRetirarActionPerformed realiza la accion de retirar un monto de la cuenta del cliente,
 *los cambios realizados se guardan en el archivo txt creado previamente.
 */
     private void jButton_AccionRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AccionRetirarActionPerformed
-        double cantidad = Double.parseDouble(jTextField_MontoRetirar.getText());
-        DecimalFormat df = new DecimalFormat("#.##");
-        String valorFormateado = df.format(clienteActual.getSaldo());
-        if (clienteActual.retirar(cantidad)) {
-            jLabel_SaldoActual.setText("Saldo Actual: " + valorFormateado);
-            banco.guardarClientes(); // Guardar cambios en el archivo
-        } else {
-            JOptionPane.showMessageDialog(null, "Fondos insuficientes.");
+        try {
+            double cantidad = Double.parseDouble(jTextField_MontoRetirar.getText());
+            if (clienteActual.retirar(cantidad)) {
+                DecimalFormat df = new DecimalFormat("#.##");
+                String valorFormateado = df.format(clienteActual.getSaldo()); // Actualizar después del retiro
+                jLabel_SaldoActual.setText("Saldo Actual: " + valorFormateado);
+                banco.guardarClientes(); // Guardar cambios en el archivo
+            } else {
+                JOptionPane.showMessageDialog(null, "Fondos insuficientes.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese un número válido.");
         }
-        jLabel_SaldoActual.setText("");
     }//GEN-LAST:event_jButton_AccionRetirarActionPerformed
      /**
      * Metodo principal que ejecuta la inicializacion de la interfaz de Retirar.

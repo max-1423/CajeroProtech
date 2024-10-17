@@ -130,7 +130,7 @@ public class Depositar extends javax.swing.JFrame {
      */
     private void jButton_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VolverActionPerformed
         new PagPrincipal().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton_VolverActionPerformed
     /**
     * El jButton_AccionDepositarActionPerformed realiza la accion de depositar un monto en la cuenta del cliente,
@@ -138,12 +138,10 @@ public class Depositar extends javax.swing.JFrame {
     */
     private void jButton_AccionDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AccionDepositarActionPerformed
         double cantidad = Double.parseDouble(jTextField_MontoDepositar.getText());
-        DecimalFormat df = new DecimalFormat("#.##");
-        String valorFormateado = df.format(clienteActual.getSaldo());
         clienteActual.depositar(cantidad);
-        jLabel_SaldoDepositar.setText("Saldo Actual: " + valorFormateado);
+        jLabel_SaldoDepositar.setText("Saldo Actual: " + clienteActual.getSaldo());
         jTextField_MontoDepositar.setText("");
-        banco.guardarClientes(); // Guardar cambios en el archivo
+        banco.guardarClientes(); // Guardar cambios en el arc
     }//GEN-LAST:event_jButton_AccionDepositarActionPerformed
 
     /**

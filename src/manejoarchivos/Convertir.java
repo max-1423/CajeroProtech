@@ -98,19 +98,19 @@ public class Convertir {
                         return true;
                     }
                     case "Sol" -> {
-                        valorMonetario = 3.74;
+                        valorMonetario = 0.27;
                         return true;
                     }
-                    case "Real" -> {
-                        valorMonetario = 5.46;
+                    case "real" -> {
+                        valorMonetario = 0.18;
                         return true;
                     }
                     case "Yen" -> {
-                        valorMonetario = 148.72;
+                        valorMonetario = 0.0067;
                         return true;
                     }
                     case "Boliviano" -> {
-                        valorMonetario = 6.94;
+                        valorMonetario = 0.14;
                         return true;
                     }
                     default -> {
@@ -120,7 +120,7 @@ public class Convertir {
             } else if (moneda.equals("Sol")) {
                 switch (monedaAnterior) {
                     case "Dolar" -> {
-                        valorMonetario = 0.27;
+                        valorMonetario = 3.77;
                         return true;
                     }
                     case "Sol" -> {
@@ -128,15 +128,15 @@ public class Convertir {
                         return true;
                     }
                     case "Real" -> {
-                        valorMonetario = 1.46;
+                        valorMonetario = 0.67;
                         return true;
                     }
                     case "Yen" -> {
-                        valorMonetario = 39.77;
+                        valorMonetario = 0.025;
                         return true;
                     }
                     case "Boliviano" -> {
-                        valorMonetario = 1.86;
+                        valorMonetario = 0.54;
                         return true;
                     }
                     default -> {
@@ -146,11 +146,11 @@ public class Convertir {
             } else if (moneda.equals("Real")) {
                 switch (monedaAnterior) {
                     case "Dolar" -> {
-                        valorMonetario = 0.18;
+                        valorMonetario = 5.66;
                         return true;
                     }
                     case "Sol" -> {
-                        valorMonetario = 0.69;
+                        valorMonetario = 1.5;
                         return true;
                     }
                     case "Real" -> {
@@ -158,11 +158,11 @@ public class Convertir {
                         return true;
                     }
                     case "Yen" -> {
-                        valorMonetario = 27.25;
+                        valorMonetario = 0.038;
                         return true;
                     }
                     case "Boliviano" -> {
-                        valorMonetario = 1.27;
+                        valorMonetario = 0.82;
                         return true;
                     }
                     default -> {
@@ -172,15 +172,15 @@ public class Convertir {
             } else if (moneda.equals("Yen")) {
                 switch (monedaAnterior) {
                     case "Dolar" -> {
-                        valorMonetario = 0.0067;
+                        valorMonetario = 150.23;
                         return true;
                     }
                     case "Sol" -> {
-                        valorMonetario = 0.025;
+                        valorMonetario = 39.89;
                         return true;
                     }
                     case "Real" -> {
-                        valorMonetario = 0.37;
+                        valorMonetario = 26.56;
                         return true;
                     }
                     case "Yen" -> {
@@ -188,7 +188,7 @@ public class Convertir {
                         return true;
                     }
                     case "Boliviano" -> {
-                        valorMonetario = 0.47;
+                        valorMonetario = 21.75;
                         return true;
                     }
                     default -> {
@@ -198,19 +198,19 @@ public class Convertir {
             } else if (moneda.equals("Boliviano")) {
                 switch (monedaAnterior) {
                     case "Dolar" -> {
-                        valorMonetario = 0.14;
+                        valorMonetario = 6.91;
                         return true;
                     }
                     case "Sol" -> {
-                        valorMonetario = 0.54;
+                        valorMonetario = 1.83;
                         return true;
                     }
                     case "Real" -> {
-                        valorMonetario = 0.79;
+                        valorMonetario = 1.22;
                         return true;
                     }
                     case "Yen" -> {
-                        valorMonetario = 21.45;
+                        valorMonetario = 0.046;
                         return true;
                     }
                     case "Boliviano" -> {
@@ -232,7 +232,7 @@ public class Convertir {
  */
     public double convertirMoneda() {
         if (monedaValor()) {
-            saldo = saldo / valorMonetario;
+            saldo = saldo * valorMonetario;
             return saldo;
         }
         return saldo;

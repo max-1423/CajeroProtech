@@ -150,37 +150,44 @@ public class ConvMoneda extends javax.swing.JFrame {
  */
     private void jButton_VolverActionPerformed(java.awt.event.ActionEvent evt) {                                               
         new PagPrincipal().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }                                              
 
     private void jButton_ConvertirMonActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-        String tipoMoneda = jTextField_MonedaConv.getText(); // Obtener la entrada de la moneda
-        String tipoMonedaA = clienteActual.getMoneda(); // Moneda actual del cliente
-        // Crear un objeto DecimalFormat con el formato deseado
-        DecimalFormat df = new DecimalFormat("#.##"); // 2 decimales
-        
+        String tipoMoneda = jTextField_MonedaConv.getText(); // Moneda ingresada por el usuario
+    String tipoMonedaA = clienteActual.getMoneda(); // Moneda actual del cliente
+    DecimalFormat df = new DecimalFormat("#.##"); // Formato para 2 decimales
 
-        // Validar que el campo no esté vacío
-        if (tipoMoneda.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor ingresa una moneda válida.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+    // Validar que el campo no esté vacío
+    if (tipoMoneda.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Por favor ingresa una moneda válida.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
 
-        // Intentar convertir la moneda del cliente
-        boolean exito = clienteActual.convertir(tipoMoneda, clienteActual.getSaldo(), tipoMonedaA);
+    // Intentar convertir la moneda del cliente
+    Convertir conversion = new Convertir(tipoMoneda, clienteActual.getSaldo(), tipoMonedaA);
+    
+    // Verificar si la conversión fue exitosa (si las monedas son válidas y existe una tasa de conversión)
+    if (conversion.monedaExiste()) {
+        double nuevoSaldo = conversion.convertirMoneda(); // Convertimos el saldo
+        clienteActual.setSaldo(nuevoSaldo); // Actualizamos el saldo del cliente
+        clienteActual.setMoneda(conversion.getNuevaMoneda()); // Actualizamos la moneda actual del cliente
 
-        if (exito) {
-            
-            banco.guardarClientes(); // Guardar el estado de los clientes en el archivo
-            String valorFormateado = df.format(clienteActual.getSaldo());
-            jLabel_SaldoActual.setText("Su saldo actual es: " + valorFormateado);
-            jLabel_MonedaActual.setText("Su moneda actual es: " + clienteActual.getMoneda());
-            JOptionPane.showMessageDialog(null, "Conversión realizada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "No se pudo realizar la conversión. Verifica la moneda ingresada.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        // Guardamos los cambios en el banco
+        banco.guardarClientes();
 
-        jTextField_MonedaConv.setText(""); // Limpiar el campo de texto       
+        // Mostramos el saldo actualizado en la interfaz
+        String valorFormateado = df.format(clienteActual.getSaldo());
+        jLabel_SaldoActual.setText("Su saldo actual es: " + valorFormateado);
+        jLabel_MonedaActual.setText("Su moneda actual es: " + clienteActual.getMoneda());
+
+        JOptionPane.showMessageDialog(null, "Conversión realizada con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        JOptionPane.showMessageDialog(null, "No se pudo realizar la conversión. Verifica la moneda ingresada.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    // Limpiar el campo de texto
+    jTextField_MonedaConv.setText("");    
     }                                                    
 
     /**

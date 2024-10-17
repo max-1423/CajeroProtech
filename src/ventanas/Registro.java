@@ -171,10 +171,14 @@ public class Registro extends javax.swing.JFrame {
         String contraseña = jTextField_Contrasenia.getText();
         String username = jTextField_UserName.getText();
         String moneda = jTextField_Moneda.getText();
-        if (banco.registrarCliente(nombre, username, contraseña, moneda)) {
-            JOptionPane.showMessageDialog(null, "Cliente registrado con éxito!");
-        } else {
-            JOptionPane.showMessageDialog(null, "El nombre ya está en uso. Intente otro.");
+        if(nombre.equals("")|| contraseña.equals("")||contraseña.equals("")|| moneda.equals("")){ 
+            JOptionPane.showMessageDialog(null, "Rellene los espacios vacios del registro de datos");
+        }else{
+            if (banco.registrarCliente(nombre, username, contraseña, moneda)) {
+                JOptionPane.showMessageDialog(null, "Cliente registrado con éxito!");
+            } else {
+                JOptionPane.showMessageDialog(null, "El nombre ya está en uso. Intente otro.");
+            }
         }
     }//GEN-LAST:event_jButton_RegistrarActionPerformed
 /**
@@ -182,7 +186,7 @@ public class Registro extends javax.swing.JFrame {
  */
     private void jButton_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_VolverActionPerformed
         new Login().setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButton_VolverActionPerformed
 
     /**
